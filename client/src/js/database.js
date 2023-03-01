@@ -17,10 +17,10 @@ export const putDb = async (content) => {
   const dbOpen = await openDB('jate', 1);
 
   // Now create a variable for the transaction
-  const jateTrans = jateDb.transaction('jate', 'readwrite');
+  const tx = dbOpen.transaction('jate', 'readwrite');
 
   // Now create a variable for the store
-  const jateStore = tx.objectStore('jate');
+  const store = tx.objectStore('jate');
 
   // Now create a variable named "request" and have it perform the update
   const request = store.put({ id: 1, value: content });
@@ -34,8 +34,8 @@ export const getDb = async () => {
   // You can duplicate the same first lines of code from above, except that the transaction will be 'readonly'
   
   const dbOpen = await openDB('jate', 1);
-  const jateTrans = jateDb.transaction('jate', 'readonly');
-  const jateStore = tx.objectStore('jate');
+  const tx = dbOpen.transaction('jate', 'readonly');
+  const store = tx.objectStore('jate');
 
   
   const request = store.get(1);

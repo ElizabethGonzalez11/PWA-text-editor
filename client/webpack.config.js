@@ -17,13 +17,7 @@ module.exports = () => {
 
     plugins: [
 
-    /*
-      TODO:
-
-      We need to configure some plugins for Wepack to use. They 
-      have already been required in above.
-      When all three plugins are configured this work is done.
-    */
+    
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'J.A.T.E'
@@ -49,25 +43,15 @@ module.exports = () => {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons')
-          }
-        ]
-      })   
+          },
+        ],
+      }),  
 
     ],
 
     module: {
       rules: [
 
-        /*
-          TODO: In this array, we need to configure the rules 
-          for when Webpack should "bundle-ize" our files. Each rule 
-          is an object. We will be setting up two rules. 
-          
-          You will find both rules in the solutiom for the mini 
-          project. 
-
-          When you copy and paste them below, you'll be done here.
-        */
           {
             test: /\.css$/i,
             use: ['style-loader', 'css-loader'],
